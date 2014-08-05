@@ -10,7 +10,7 @@
 <h4>How to Play</h4><br/>
 
 <p>Type this command in terminal and follow the on-screen instructions:</p>
-<p>$ ruby ./lib/run_battleships.rb</p>
+<p>$ <strong>ruby ./lib/run_battleships.rb</strong></p>
 
 <h3>Testing</h3>
 
@@ -19,4 +19,3 @@
 <p>To run the tests: $ rspec</p>
 
 <p>Rspec version: 3.0.3</p>
-
