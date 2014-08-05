@@ -1,4 +1,4 @@
-<h2>Battleships</h2>
+<h1>Battleships</h1>
 
 <h4>Description</h4><br/>
 
