@@ -12,7 +12,7 @@
 <p>Type this command in terminal and follow the on-screen instructions:</p>
 <p>$ <strong>ruby ./lib/run_battleships.rb</strong></p>
 
-<h3>Testing</h3>
+<h4>Testing</h4>
 
 <p>Tests were written with Rspec.
 
