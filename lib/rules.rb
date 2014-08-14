@@ -56,22 +56,4 @@ module Battleship_Rules
 		end
 		coordinates
 	end
-
-
-	# def good_coordinate?(coordinate)
-	# 	in_range?(coordinate) == true
-	# end
-
-	# def in_range?(coordinate)
-	# 	(in_row_range?(coordinate) && in_column_range?(coordinate)) == true
-	# end
-
-	# def in_row_range?(coordinate)
-	# 	("A".."J").include?(coordinate.slice(0))
-	# end
-
-	# def in_column_range?(coordinate)
-	# 	("1".."10").include?(coordinate.slice(1..2))
-	# end
-
 end

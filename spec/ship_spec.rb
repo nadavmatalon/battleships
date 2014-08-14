@@ -2,8 +2,6 @@ require "./lib/ship.rb"
 
 describe Ship do
 
-	# let(:ship) { Ship.new }
-
 	it "can be initialized as a battleship" do
 		ship = Ship.new([:A1, :A2, :A3, :A4])
 		expect(ship.type).to eq :battleship
@@ -47,7 +45,6 @@ describe Ship do
 	it "must be initialized with a specific size" do
 		expect(lambda{Ship.new}).to raise_error(ArgumentError)
 	end
-
 
 	it 'is floating when first created' do
 		ship = Ship.new([:A1, :A2, :A3, :A4])
@@ -146,6 +143,5 @@ describe Ship do
 	it "cannot be placed on non-consecutive coordinates" do
 		expect(lambda{Ship.new([:A1, :A5, :A10])}).to raise_error(ArgumentError)
 	end
-
 end
 
