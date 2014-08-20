@@ -10,7 +10,7 @@ class Battleships
 	attr_accessor :game
 	attr_accessor :winner
 
-	SUNK_SHIPS_TO_WIN = 1
+	SUNK_SHIPS_TO_WIN = 10
 
 	include Battleship_Rules
 
@@ -142,9 +142,9 @@ class Battleships
 
 	def place_ships(player)
 		place_ship_on_board_of(player, :battleship)
-		# 2.times {place_ship_on_board_of(player, :cruiser)}
-		# 3.times {place_ship_on_board_of(player, :destroyer)}
-		# 4.times {place_ship_on_board_of(player, :submarine)}
+		2.times {place_ship_on_board_of(player, :cruiser)}
+		3.times {place_ship_on_board_of(player, :destroyer)}
+		4.times {place_ship_on_board_of(player, :submarine)}
 	end
 
 	def place_ship_on_board_of(player, ship_type)
