@@ -1,21 +1,104 @@
-<h1>Battleships</h1>
+#Battleships: Web Version
 
-<h4>Description</h4><br/>
+## Table of Contents
 
-<p>The game of 'Battleships' implemented in terminal and written in Ruby according to TDD<p>
+* [Screenshots](#screenshots)
+* [General Description](#general-description)
+* [How to Play](#how-to-play)
+* [Running the Game](#running-the-game)
+* [Testing](#testing)
+* [License](#license)
 
-<p>For general description and rules of the game see:</p>
-<p>http://en.wikipedia.org/wiki/Battleship_(game)</p>
 
-<h4>How to Play</h4><br/>
+##Screenshots
 
-<p>Type this command in terminal and follow the on-screen instructions:</p>
-<p>$ <strong>ruby ./lib/run_battleships.rb</strong></p>
+<table>
+	<tr>
+		<td align="center" width=25%>
+			<a href="https://raw.githubusercontent.com/nadavmatalon/battleships_web/master/public/images/battleships_web_1.jpg">
+				<img src="public/images/battleships_web_1.jpg" height="92px" />
+				 Start
+			</a>
+		</td>
+		<td align="center" width=25%>
+			<a href="https://raw.githubusercontent.com/nadavmatalon/battleships_web/master/public/images/battleships_web_2.jpg">
+				<img src="public/images/battleships_web_2.jpg" height="92px" />
+				 Setup
+			</a>
+		</td>
+	</tr>
+</table>
 
-<h4>Testing</h4>
 
-<p>Tests were written with Rspec.
+##General Description
 
-<p>To run the tests: $ rspec</p>
+The game of 'Battleships' implemented in terminal and written in Ruby according to TDD.
 
-<p>Rspec version: 3.0.3</p>
+For general information please see: [Wikipedia on Battleships](http://en.wikipedia.org/wiki/Battleship_(game))
+
+
+##How to Play
+
+The goal of Battleships is to sink all of the other player's ships before
+they manage to sink your own ships. 
+
+The game begins with each player setting up their own board with a set of 10 ships of
+different kinds (and without letting the other player peak!)
+
+Each player set of ships consists of:
+
+* 1 x __Battleship__           (covers 4 squares)
+* 2 x __Cruisers__             (each covering 3 squares)
+* 3 x __Destroyers__           (each covering 2 squares)
+* 4 x __Submarines__           (each covering 1 square)
+
+Ships must be placed either in a vetical or horizontal position.
+
+To place a ship, the player need to select an initial coordinate on the grid 
+(ranging between A-J and 1-10), for example: A1. 
+
+This coordinate represents the top-left corner of the ship's position.
+
+Then the player needs to select whether to place it horizontally or vertically.
+
+Also note that a ship can't be placed on top of another ship.
+
+If the coordinates are legitimate (within the board) the ship is placed and 
+the player can place the next ship in line.
+
+(on-screen feedback is given if the placement was successful or not)
+
+Once the two boards are set, the players take turns attacking a single 
+coordinate (eg A1) on the other player's board in each turn, so as
+to try and hit the other player's ships. 
+
+If the attack is successful the game issues a 'ship hit' message.
+
+When all the coordinates of a given ship are hit, it sinks and the game issues a 
+'ship sunk' message.
+
+The player who manages to sink all of the other player's ships is the winner.
+
+
+##Running the Game
+
+To run the game in terminal, type this command and follow the on-screen instructions:
+
+```bash
+$ ruby ./lib/run_battleships.rb
+```
+
+##Testing
+
+Tests were written with Rspec (3.0.4)
+
+To run the tests in terminal: 
+
+```bash
+$ rspec
+```
+
+##License
+
+<p>Released under the <a href="http://www.opensource.org/licenses/MIT">MIT license</a>.</p>
+
