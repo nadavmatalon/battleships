@@ -1,4 +1,4 @@
-#Battleships: Web Version
+#Battleships
 
 ## Table of Contents
 
