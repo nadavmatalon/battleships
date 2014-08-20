@@ -14,19 +14,19 @@
 
 <table>
 	<tr>
-		<td align="center" width=25%>
+		<td align="center" width="130px">
 			<a href="https://raw.githubusercontent.com/nadavmatalon/battleships/master/images/battleships_1.jpg">
 				<img src="images/battleships_1.jpg" height="92px" />
 				 Start
 			</a>
 		</td>
-		<td align="center" width=25%>
+		<td align="center" width="130px">
 			<a href="https://raw.githubusercontent.com/nadavmatalon/battleships/master/images/battleships_2.jpg">
 				<img src="images/battleships_2.jpg" height="92px" />
 				 Play
 			</a>
 		</td>
-		<td align="center" width=25%>
+		<td align="center" width="130px">
 			<a href="https://raw.githubusercontent.com/nadavmatalon/battleships/master/images/battleships_3.jpg">
 				<img src="images/battleships_3.jpg" height="92px" />
 				 Testing
