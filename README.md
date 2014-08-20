@@ -17,7 +17,7 @@
 		<td align="center" width="200px">
 			<a href="https://raw.githubusercontent.com/nadavmatalon/battleships/master/images/battleships_1.jpg">
 				<img src="images/battleships_1.jpg" height="92px" />
-				 Start
+				 Setup
 			</a>
 		</td>
 		<td align="center" width="200px">
