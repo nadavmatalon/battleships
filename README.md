@@ -38,9 +38,9 @@
 
 ##General Description
 
-The game of 'Battleships' implemented in terminal and written in Ruby according to TDD.
+The game of __Battleships__ written in [Ruby](https://www.ruby-lang.org/en/) according to [TDD](http://en.wikipedia.org/wiki/Test-driven_development) and implemented in terminal.
 
-For general information please see: [Wikipedia on Battleships](http://en.wikipedia.org/wiki/Battleship_(game))
+For more information about the game see: [Wikipedia on Battleships](http://en.wikipedia.org/wiki/Battleship_(game))
 
 
 ##How to Play
@@ -88,20 +88,22 @@ The player who manages to sink all of the other player's ships is the winner.
 
 ##Running the Game
 
-To run the game in terminal, type this command and follow the on-screen instructions:
+To run the game in terminal, clone the repo to a local folder, run these two commands and from that point just follow the on-screen instructions:
 
 ```bash
-$ ruby ./lib/run_battleships.rb
+$> cd battleships
+$> ruby ./lib/run_battleships.rb
 ```
 
 ##Testing
 
-Tests were written with Rspec (3.0.4)
+Tests were written with [Rspec](http://rspec.info/) (3.0.4).
 
-To run the tests in terminal: 
+To run the testing suite in terminal: 
 
 ```bash
-$ rspec
+$> cd battleships
+$> rspec
 ```
 
 ##License
