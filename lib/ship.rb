@@ -43,7 +43,7 @@ class Ship
 		if coordinates.is_a? Array
 			coordinates.length
 		else
-		    raise ArgumentError.new("coordinates must be given in an array")	
+			raise ArgumentError.new("coordinates must be given in an array")
 		end
 	end
 
