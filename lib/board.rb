@@ -8,7 +8,7 @@ class Board
 		@ship_count = ship_count
 	end
 
-	def total_ship_count 
+	def total_ship_count
 		@ship_count = ship_count_of_type(:submarine) + 
 				ship_count_of_type(:destroyer) + 
 				ship_count_of_type(:cruiser) + 
@@ -16,18 +16,11 @@ class Board
 	end
 
 	def ship_count_of_type(type)
-		if Ship::SHIP_TYPES.include? (type)
-			count = 0
-			ships.each {|ship| count += 1 if ship.type == type}
-			count
-		else
-			"no ships of this kind"
-		end
+			ships.select { |ship| ship.type == type }.count
 	end
 
 	def place(ship)
-		if ((max_ship_limit_for ship.type) > (ship_count_of_type ship.type)) &&
-			!overlap_with_existing_ships?(ship)
+		if legitimate_placement_of ship
 			ships << ship
 			update_occupied_coordinates_list
 			total_ship_count
@@ -39,12 +32,16 @@ class Board
 		end
 	end
 
+	def legitimate_placement_of ship
+		((max_ship_limit_for ship.type) > (ship_count_of_type ship.type)) && !overlap_with_existing_ships?(ship)
+	end
+
 	def max_ship_limit_for(ship_type)
-		case(ship_type)
-			when (:submarine) then 4
-			when (:destroyer) then 3
-			when (:cruiser) then 2
-			when (:battleship) then 1
+		case ship_type
+			when :submarine then 4
+			when :destroyer then 3
+			when :cruiser then 2
+			when :battleship then 1
 		end
 	end
 
@@ -70,34 +67,26 @@ class Board
 		((occupied_coordinates.flatten) & (search_array)).any? == true
 	end
 
-	def attack(coordinate)
-
-		if legit_coordinate?(coordinate)
-			if !previously_attacked?(coordinate)
-				update_attacked_coordinates(coordinate)
-				if ship_segment?(coordinate) 
-					attacked_ship = identify_ship_by(coordinate)
-					attacked_ship.take_hit
-					update_sunk_ships(attacked_ship)
-					:hit
-				else
-					:miss
-				end
-			else
-				"coordinate has already been attacked"
-			end
+	def attack coordinate
+		return "specified coordinate does not exit" if !legit_coordinate?(coordinate)
+		return "coordinate has already been attacked" if previously_attacked?(coordinate)
+		update_attacked_coordinates(coordinate)
+		if ship_segment?(coordinate)
+			register_attack_on coordinate
+			:hit
 		else
-			"specified coordinate does not exit"
-		end
+			:miss
+		end				
 	end
 
-	def identify_ship_by(coordinate)
-		identified_ship = ships.select {|ship| ((ship.coordinates & [coordinate]).any? == true)}
-		if !identified_ship.empty?
-			identified_ship[0]
-		else
-			"no ship at that coordinate"
-		end
+	def register_attack_on coordinate
+		attacked_ship = identify_ship_by(coordinate)
+		attacked_ship.take_hit
+		update_sunk_ships(attacked_ship)
+	end
+
+	def identify_ship_by coordinate
+		ships.select { |ship| ((ship.coordinates & [coordinate]).any?) }.first || "no ship at that coordinate"
 	end
 
 	def attacked_coordinates

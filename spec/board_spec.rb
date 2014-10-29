@@ -155,5 +155,14 @@ describe Board do
 		expect(board.attack(:A1)).to eq message
 	end
 
+	it "can idetify a ship by one of it's coordinates" do
+		board.place(destroyer_1)
+		expect(board.identify_ship_by(:C1)).to eq destroyer_1
+	end
+
+	it "knows if a coordinate isn't occupied by a ship" do
+		expect(board.identify_ship_by(:A1)).to eq "no ship at that coordinate"
+	end
+
 end
 
