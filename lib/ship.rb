@@ -2,10 +2,10 @@ class Ship
 
 	SHIP_TYPES = [:battleship, :cruiser, :destroyer, :submarine]
 
-	def initialize(coordinates)
+	def initialize (coordinates)
 		@coordinates = coordinates
-		@size = set_size_according_to_coordinates(coordinates)
-		@type = set_type_according_to_size(size)
+		@size = set_size_according_to coordinates
+		@type = set_type_according_to size
 		@position = vertical_or_horizontal_check
 		inside_grid?
 		consecutive?
@@ -17,13 +17,14 @@ class Ship
 		@type
 	end
 
-	def set_type_according_to_size(size)
-		case(size)
-			when (1) then @type = :submarine	
-			when (2) then @type = :destroyer
-			when (3) then @type = :cruiser
-			when (4) then @type = :battleship
+	def set_type_according_to size
+		case size
+			when 1 then ship_type = :submarine	
+			when 2 then ship_type = :destroyer
+			when 3 then ship_type = :cruiser
+			when 4 then ship_type = :battleship
 		end
+		ship_type
 	end
 
 	def coordinates
@@ -38,8 +39,8 @@ class Ship
 		@position
 	end
 
-	def set_size_according_to_coordinates(coordinates)
-		if (coordinates.is_a? Array)
+	def set_size_according_to coordinates
+		if coordinates.is_a? Array
 			coordinates.length
 		else
 		    raise ArgumentError.new("coordinates must be given in an array")	
@@ -68,20 +69,23 @@ class Ship
 
 	def take_hit
 		if hit_count != size 
-			@hit_count += 1 
-			hit_count == 1 ? message_modifier = "" : message_modifier = "s" 
-			@hit_count == size ? @status = :sunk : "#{@type} has taken #{hit_count} hit#{message_modifier}"
+			@hit_count += 1
+			@hit_count == size ? @status = :sunk : "#{@type} has taken #{hit_count} hit#{hit_message_modifier}"
 		else
 			"ship already sunk"
 		end
 	end
 
+	def hit_message_modifier
+		hit_count == 1 ? "" : "s" 
+	end
+
 	def horizontal? 
-		row_data.all? {|e| e == row_data[0]}
+		row_data.all? { |coordinate| coordinate == row_data[0] }
 	end
 
 	def vertical?
-		column_data.all? {|e| e == column_data[0]}
+		column_data.all? { |coordinate| coordinate == column_data[0] }
 	end
 
 	def vertical_or_horizontal_check
@@ -96,37 +100,31 @@ class Ship
 
 	def inside_rows?
 		result = 0
-		row_data.each {|row| ("A".."J") === row ? "" : result += 1}
-		result == 0 ? true : false
+		row_data.each { |row| ("A".."J") === row ? "" : result += 1 }
+		result == 0
 	end
 
 	def inside_columns?
 		result = 0
-		column_data.each {|column| ("1".."10") === column ? "" : result += 1}
-		result == 0 ? true : false
+		column_data.each { |column| ("1".."10") === column ? "" : result += 1 }
+		result == 0
 	end
 
 	def row_data
- 		row_data = coordinates.map {|e| e.to_s.slice(0)}		
+ 		row_data = coordinates.map { |coordinate| coordinate.to_s.slice(0) }
 	end
 
 	def column_data
- 		column_data = coordinates.map {|e| e.to_s.slice(1..2)}		
+ 		column_data = coordinates.map { |coordinate| coordinate.to_s.slice(1..2) }		
 	end
 
 	def consecutive?
-		index = 1
-		result = 0
-		(size-1).times do
-			horizontal? ? data = column_data : data = row_data
+		result, data = 0, horizontal? ? column_data : row_data
+		for index in 1..(size-1) do
 			result += 1 if !(data[index].to_s == data[index-1].next.to_s) 
-			index += 1
 		end
   		result == 0 ? :yep : (raise ArgumentError.new("ship must be placed on consecutive coordinates"))
 	end
 
 end
-
-
-
 
