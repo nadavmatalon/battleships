@@ -237,7 +237,6 @@ class Battleships
 		"\n(hit any key to continue)\n\n"
 	end
 
-
 end
 
 
