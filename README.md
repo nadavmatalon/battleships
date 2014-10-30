@@ -54,6 +54,7 @@ then run the following commands and follow the on-screen instructions:
 
 ```bash
 $> cd battleships
+$> bundle install
 $> ruby ./lib/run_battleships.rb
 ```
 
