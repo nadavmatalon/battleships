@@ -98,16 +98,13 @@ class Ship
 		end
 	end
 
+
 	def inside_rows?
-		result = 0
-		row_data.each { |row| ("A".."J") === row ? "" : result += 1 }
-		result == 0
+		!row_data.map { |row_letter| ("A".."J").include?row_letter }.include?false
 	end
 
 	def inside_columns?
-		result = 0
-		column_data.each { |column| ("1".."10") === column ? "" : result += 1 }
-		result == 0
+		!column_data.map { |column_number| ("1".."10").include?column_number }.include?false
 	end
 
 	def row_data
