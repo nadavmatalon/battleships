@@ -202,7 +202,6 @@ class Battleships
 
 	def incorrect_selection_message
 		"\nSorry, incorrect selection - please try again.\n\n"
-
 	end
 
 	def show_position_selection_message(ship_type)

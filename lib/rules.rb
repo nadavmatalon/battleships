@@ -4,7 +4,7 @@ module Battleship_Rules
 	def check_coordinates?(coordinates)
 	 	row_data = coordinates.map { |row_letter| row_letter.to_s.slice(0) }
 		column_data = coordinates.map { |column_number| column_number.to_s.slice(1..2) }
-		coordinates_inside_rows?(row_data) && coordinates_inside_columns?(column_data) == true
+		coordinates_inside_rows?(row_data) && coordinates_inside_columns?(column_data)
 	end
 
 	def coordinates_inside_rows?(row_data)
