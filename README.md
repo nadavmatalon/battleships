@@ -4,8 +4,8 @@
 
 * [Screenshots](#screenshots)
 * [General Description](#general-description)
-* [How to Play](#how-to-play)
-* [Running the Game](#running-the-game)
+* [Running the Game in Terminal](#running-the-game-in-terminal)
+* [Rules of the Game](#rules-of-the-game)
 * [Testing](#testing)
 * [License](#license)
 
@@ -38,12 +38,27 @@
 
 ##General Description
 
-The game of __Battleships__ written in [Ruby](https://www.ruby-lang.org/en/) according to [TDD](http://en.wikipedia.org/wiki/Test-driven_development) and implemented in terminal.
+This terminal-based version of the game of __Battleships__ was pair-programmed in 
+[Ruby](https://www.ruby-lang.org/en/) (2.1.1) according to 
+[TDD](http://en.wikipedia.org/wiki/Test-driven_development) 
+(testing done with [Rspec](http://rspec.info/)) during week 4 of the course at 
+[Makers Academy](http://www.makersacademy.com/).
 
 For more information about the game see: [Wikipedia on Battleships](http://en.wikipedia.org/wiki/Battleship_(game))
 
 
-##How to Play
+##Running the Game
+
+To run the game in terminal, clone the repo to a local folder, 
+then run the following commands and follow the on-screen instructions:
+
+```bash
+$> cd battleships
+$> ruby ./lib/run_battleships.rb
+```
+
+
+##Rules of the Game
 
 The goal of Battleships is to sink all of the other player's ships before
 they manage to sink your own ships. 
@@ -86,18 +101,9 @@ When all the coordinates of a given ship are hit, it sinks and the game issues a
 The player who manages to sink all of the other player's ships is the winner.
 
 
-##Running the Game
-
-To run the game in terminal, clone the repo to a local folder, run these two commands and from that point just follow the on-screen instructions:
-
-```bash
-$> cd battleships
-$> ruby ./lib/run_battleships.rb
-```
-
 ##Testing
 
-Tests were written with [Rspec](http://rspec.info/) (3.0.4).
+Tests were written with [Rspec](http://rspec.info/) (3.1.7).
 
 To run the testing suite in terminal: 
 
