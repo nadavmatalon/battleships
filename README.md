@@ -4,7 +4,7 @@
 
 * [Screenshots](#screenshots)
 * [General Description](#general-description)
-* [Running the Game in Terminal](#running-the-game-in-terminal)
+* [How to Run the Game](#how-to-run-the-game)
 * [Rules of the Game](#rules-of-the-game)
 * [Testing](#testing)
 * [License](#license)
@@ -47,7 +47,7 @@ This terminal-based version of the game of __Battleships__ was pair-programmed i
 For more information about the game see: [Wikipedia on Battleships](http://en.wikipedia.org/wiki/Battleship_(game))
 
 
-##Running the Game
+##How to Run the Game
 
 To run the game in terminal, clone the repo to a local folder, 
 then run the following commands and follow the on-screen instructions:
