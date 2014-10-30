@@ -16,7 +16,7 @@ class Board
 	end
 
 	def ship_count_of_type(type)
-			ships.select { |ship| ship.type == type }.count
+		ships.select { |ship| ship.type == type }.count
 	end
 
 	def place(ship)
@@ -48,7 +48,7 @@ class Board
 	def overlap_with_existing_ships?(new_ship)
 		update_occupied_coordinates_list
 		ships.each {|ship| occupied_coordinates << ship.coordinates}
-		((occupied_coordinates.flatten) & (new_ship.coordinates)).any? == true
+		((occupied_coordinates.flatten) & (new_ship.coordinates)).any?
 	end
 
 	def occupied_coordinates
@@ -64,7 +64,7 @@ class Board
 		update_occupied_coordinates_list
 		search_array = []
 		search_array << coordinate
-		((occupied_coordinates.flatten) & (search_array)).any? == true
+		((occupied_coordinates.flatten) & (search_array)).any?
 	end
 
 	def attack coordinate
@@ -111,7 +111,7 @@ class Board
 	end
 
 	def in_range?(coordinate)
-		(in_row_range?(coordinate) && in_column_range?(coordinate)) == true
+		(in_row_range?(coordinate) && in_column_range?(coordinate))
 	end
 
 	def in_row_range?(coordinate)
