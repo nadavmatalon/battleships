@@ -133,8 +133,8 @@ describe Ship do
 
 	it "must be placed on consecutive coordinates" do
 		ship_1 = Ship.new([:A8, :A9, :A10])
-		ship_2= Ship.new([:B8, :C8, :D8])
-		ship_3= Ship.new([:E5])
+		ship_2 = Ship.new([:B8, :C8, :D8])
+		ship_3 = Ship.new([:E5])
 		expect(ship_1.consecutive?).to eq :yep
 		expect(ship_2.consecutive?).to eq :yep
 		expect(ship_3.consecutive?).to eq :yep
