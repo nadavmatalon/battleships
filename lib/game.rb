@@ -6,7 +6,7 @@ class Game
 	
 	attr_accessor :players
 
-	SUNK_SHIPS_TO_WIN = 1
+	SUNK_SHIPS_TO_WIN = 10
 
 	def initialize (players = [], current_turn = :player_one)
 		@players = players
